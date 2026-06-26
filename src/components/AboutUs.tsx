@@ -51,7 +51,7 @@ export const AboutUs: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Visual Presentation / Team Placeholder Left */}
           <div className="lg:col-span-5 space-y-6 relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 aspect-video lg:aspect-square bg-slate-900 flex items-center justify-center text-center p-8 text-white">
+            <div className="relative rounded-3xl shadow-2xl border border-slate-200 aspect-video lg:aspect-square bg-slate-900 flex items-center justify-center text-center p-8 text-white">
               {/* Abstract decorative geometric layout */}
               <div className="absolute inset-0 bg-radial-at-t from-blue-600/30 via-slate-950 to-slate-950 opacity-90" />
               <div className="absolute -left-10 -bottom-10 w-44 h-44 bg-blue-500/20 rounded-full blur-2xl" />

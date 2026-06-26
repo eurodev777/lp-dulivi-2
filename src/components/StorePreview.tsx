@@ -273,14 +273,14 @@ export const StorePreview: React.FC<StorePreviewProps> = ({ formData }) => {
                   onClick={() => setActiveCategory(cat)}
                   className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                     isSelected
-                      ? "shadow-xs border"
+                      ? "font-bold"
                       : "bg-slate-50 text-slate-500 hover:text-slate-800"
                   }`}
-                  style={{
-                    backgroundColor: isSelected ? activeTheme.bg : undefined,
-                    color: isSelected ? activeTheme.text : undefined,
-                    borderColor: isSelected ? activeTheme.bg : undefined,
-                  }}
+                  // style={{
+                  //   backgroundColor: isSelected ? activeTheme.bg : undefined,
+                  //   color: isSelected ? activeTheme.text : undefined,
+                  //   borderColor: isSelected ? activeTheme.bg : undefined,
+                  // }}
                 >
                   {cat === "Burger" && ""}
                   {cat === "Pizzas" && ""}

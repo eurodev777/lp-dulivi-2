@@ -705,7 +705,9 @@ export default function App() {
               </div>
 
               <button
-                onClick={() => setActiveSuccessModal(null)}
+                onClick={() =>
+                  window.open("https://painel.dulivi.com.br", "_blank")
+                }
                 className="w-full h-11 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold shadow-md cursor-pointer transition-all"
               >
                 Entrar no Gerenciador
