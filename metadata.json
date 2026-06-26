@@ -1,0 +1,6 @@
+{
+  "name": "Dulivi",
+  "description": "Crie grátis seu Cardápio Digital para Delivery com atendimento inteligente por WhatsApp, disparos e automações de anúncios.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
