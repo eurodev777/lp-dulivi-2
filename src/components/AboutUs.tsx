@@ -65,7 +65,7 @@ export const AboutUs: React.FC = () => {
                   financeira, operacional e estratégica.”
                 </p>
                 <div className="h-px bg-white/20 w-16 mx-auto my-3" />
-                <p className="text-xs text-slate-400 font-mono">
+                <p className="text-sm text-slate-400 font-mono">
                   Fundada em 2023 • Santos, SP
                 </p>
               </div>
@@ -94,7 +94,7 @@ export const AboutUs: React.FC = () => {
 
           {/* Texts Right */}
           <div className="lg:col-span-7 space-y-6">
-            <span className="bg-blue-50 text-blue-700 text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
+            <span className="bg-blue-50 text-blue-700 text-sm px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
               Quem Somos
             </span>
 
@@ -102,14 +102,14 @@ export const AboutUs: React.FC = () => {
               Por que a Dulivi existe?
             </h2>
 
-            <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
+            <p className="text-slate-500 text-sm md:text-sm leading-relaxed">
               Nós existimos porque acreditamos que os donos de restaurantes
               devem ter mais liberdade, seja ela financeira, do operacional ou
               de algum marketplace. Nós fazemos isso otimizando o tempo do dono
               de restaurante e aumentando muito o faturamento do seu negócio.
             </p>
 
-            <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
+            <p className="text-slate-500 text-sm md:text-sm leading-relaxed">
               A Dulivi foi fundada nesse formato em 2023 e surgiu da união de
               pessoas que viveram as dores e os desafios de se ter um negócio
               próprio, seja através da família ou com a própria experiência
@@ -130,10 +130,10 @@ export const AboutUs: React.FC = () => {
                   >
                     <span className="text-2xl select-none">{pil.icon}</span>
                     <div>
-                      <h4 className="font-extrabold text-slate-800 text-xs">
+                      <h4 className="font-extrabold text-slate-800 text-sm">
                         {pil.title}
                       </h4>
-                      <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">
+                      <p className="text-xs text-slate-400 mt-0.5 leading-normal">
                         {pil.desc}
                       </p>
                     </div>
@@ -145,7 +145,7 @@ export const AboutUs: React.FC = () => {
             <div className="pt-4 flex gap-4">
               <a
                 href="#features"
-                className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-5 py-3 rounded-xl shadow-md transition-all cursor-pointer"
+                className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold px-5 py-3 rounded-xl shadow-md transition-all cursor-pointer"
               >
                 <span>Ver funcionalidades</span>
                 <ArrowRight size={13} />

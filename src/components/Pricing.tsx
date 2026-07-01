@@ -83,7 +83,7 @@ export const Pricing: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4">
         {/* Title Block */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="bg-blue-50 text-blue-700 text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
+          <span className="bg-blue-50 text-blue-700 text-sm px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
             Preços Claros
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-black text-slate-900 mt-4 tracking-tight">
@@ -98,7 +98,7 @@ export const Pricing: React.FC = () => {
           <div className="inline-flex items-center gap-3 bg-slate-100 border border-slate-200/60 p-1 rounded-full mt-8">
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`px-5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              className={`px-5 py-1.5 rounded-full text-sm font-bold transition-all cursor-pointer ${
                 billingCycle === "monthly"
                   ? "bg-white text-slate-900 shadow-sm"
                   : "text-slate-500 hover:text-slate-800"
@@ -108,7 +108,7 @@ export const Pricing: React.FC = () => {
             </button>
             <button
               onClick={() => setBillingCycle("annual")}
-              className={`px-5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-5 py-1.5 rounded-full text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 billingCycle === "annual"
                   ? "bg-blue-600 text-white shadow-sm"
                   : "text-slate-500 hover:text-slate-800"
@@ -148,20 +148,20 @@ export const Pricing: React.FC = () => {
                   <h3 className="text-xl font-display font-black text-slate-900">
                     {plan.name}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1 leading-normal">
+                  <p className="text-sm text-slate-500 mt-1 leading-normal">
                     {plan.tagline}
                   </p>
 
                   {/* Price display */}
                   <div className="my-6">
                     <div className="flex items-baseline gap-1">
-                      <span className="text-xs font-black text-slate-500">
+                      <span className="text-sm font-black text-slate-500">
                         R$
                       </span>
                       <span className="text-4xl font-display font-black text-slate-900 font-mono tracking-tight">
                         {currentPrice.toFixed(2).replace(".", ",")}
                       </span>
-                      <span className="text-xs font-bold text-slate-400">
+                      <span className="text-sm font-bold text-slate-400">
                         /mês
                       </span>
                     </div>
@@ -184,7 +184,7 @@ export const Pricing: React.FC = () => {
                     {plan.features.map((feat, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2.5 text-xs text-slate-700 font-medium leading-relaxed"
+                        className="flex items-start gap-2.5 text-sm text-slate-700 font-medium leading-relaxed"
                       >
                         <Check
                           size={14}
@@ -201,7 +201,7 @@ export const Pricing: React.FC = () => {
                 <div className="mt-8">
                   <a
                     href="#contact-form-section"
-                    className={`w-full py-3 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer ${
+                    className={`w-full py-3 px-4 rounded-xl sm:text-base text-sm font-bold transition-all flex items-center justify-center gap-1 cursor-pointer ${
                       plan.popular
                         ? "bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/10 hover:shadow-lg"
                         : "bg-slate-900 hover:bg-slate-800 text-white hover:shadow-md"
@@ -209,7 +209,7 @@ export const Pricing: React.FC = () => {
                   >
                     <span>Começar delivery grátis</span>
                   </a>
-                  <p className="text-[9px] text-center text-slate-400 mt-2.5">
+                  <p className="text-[11px] text-center text-slate-400 mt-2.5">
                     15 dias de teste grátis • Sem fidelidade
                   </p>
                 </div>
@@ -235,7 +235,7 @@ export const Pricing: React.FC = () => {
               Quanto você deixa de pagar em taxas de marketplace?
             </h3>
 
-            <p className="text-slate-400 text-xs leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               Diferente de iFood e Rappi, a Dulivi cobra apenas uma{" "}
               <b>mensalidade fixa</b>. Simule seus ganhos abaixo e veja o lucro
               retornar para o seu caixa.
@@ -245,7 +245,7 @@ export const Pricing: React.FC = () => {
             <div className="space-y-4 pt-3">
               {/* Range 1: Ticket size */}
               <div className="space-y-1.5">
-                <div className="flex justify-between items-center text-xs">
+                <div className="flex justify-between items-center text-sm">
                   <span className="font-bold text-slate-300">
                     Ticket Médio por Pedido
                   </span>
@@ -265,7 +265,7 @@ export const Pricing: React.FC = () => {
 
               {/* Range 2: Orders per month */}
               <div className="space-y-1.5">
-                <div className="flex justify-between items-center text-xs">
+                <div className="flex justify-between items-center text-sm">
                   <span className="font-bold text-slate-300">
                     Pedidos Concluídos por Mês
                   </span>
@@ -286,7 +286,7 @@ export const Pricing: React.FC = () => {
 
               {/* Range 3: Commission rate */}
               <div className="space-y-1.5">
-                <div className="flex justify-between items-center text-xs">
+                <div className="flex justify-between items-center text-sm">
                   <span className="font-bold text-slate-300">
                     Taxa cobrada pelo marketplace atual
                   </span>
@@ -361,7 +361,7 @@ export const Pricing: React.FC = () => {
             </div>
 
             {/* Meta values */}
-            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-6 text-xs text-slate-400 justify-between items-start sm:items-center pt-2">
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-6 text-sm text-slate-400 justify-between items-start sm:items-center pt-2">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="text-emerald-500" size={15} />
                 <span>

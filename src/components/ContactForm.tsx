@@ -449,7 +449,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               Documento (CPF/CNPJ) *
             </label>
 
-            <div className="bg-slate-100 border border-slate-200 rounded-lg p-0.5 flex gap-0.5 text-[9px] font-extrabold shadow-inner">
+            <div className="bg-slate-100 border border-slate-200 rounded-lg p-0.5 flex gap-0.5 text-xs font-extrabold shadow-inner">
               <button
                 type="button"
                 onClick={() => {
@@ -512,7 +512,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
             {formData.password && (
               <span
-                className={`text-[9px] font-extrabold px-1.5 py-0.5 rounded transition-all leading-none ${
+                className={`text-xs font-extrabold px-1.5 py-0.5 rounded transition-all leading-none ${
                   passwordStrength.score >= 3
                     ? "text-emerald-600 bg-emerald-50"
                     : passwordStrength.score === 2
@@ -582,7 +582,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                     />
                   ))}
                 </div>
-                <p className="text-[9px] text-slate-400 font-mono">
+                <p className="text-xs text-slate-400 font-mono">
                   {passwordStrength.feedback}
                 </p>
               </motion.div>
@@ -610,7 +610,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         </button>
 
         {/* Form terms agreement */}
-        <p className="text-[9px] text-center text-slate-400 leading-relaxed font-semibold max-w-xs mx-auto pt-2">
+        <p className="text-xs text-center text-slate-400 leading-relaxed font-semibold max-w-xs mx-auto pt-2">
           Ao prosseguir, você aceita os termos e concorda em receber mensagens
           automáticas de onboarding da Dulivi no WhatsApp.
         </p>

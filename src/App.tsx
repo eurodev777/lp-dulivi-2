@@ -25,6 +25,12 @@ import {
   FileSpreadsheet,
   FileText,
   Clock,
+  Globe,
+  Bot,
+  ChartNoAxesColumn,
+  ChartNoAxesCombined,
+  MapPinned,
+  Inbox,
 } from "lucide-react";
 
 import SvgLogo from "./svg/SvgLogo";
@@ -36,6 +42,7 @@ import { Pricing } from "./components/Pricing";
 import { AboutUs } from "./components/AboutUs";
 import { Blog } from "./components/Blog";
 import { FormData, ToastMessage } from "./types";
+import WhatsApp from "./components/WhatsApp";
 
 export default function App() {
   const [formData, setFormData] = useState<Partial<FormData>>({
@@ -94,7 +101,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-blue-600 selection:text-white antialiased">
       {/* GLOBAL HEADER HEADER */}
       <header className="sticky top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
           {/* Logo Brand */}
           <a href="/" className="flex items-center gap-1.5 min-w-[210px]">
             <SvgLogo width={28} height={28} />
@@ -102,7 +109,7 @@ export default function App() {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-7 text-xs font-bold text-slate-600 uppercase tracking-wider">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-bold text-slate-600 uppercase tracking-wider">
             <a
               href="#hero"
               onClick={(e) => handleScrollTo(e, "hero")}
@@ -145,15 +152,14 @@ export default function App() {
             <a
               href="https://painel.dulivi.com.br"
               target="_blank"
-              onClick={(e) => handleScrollTo(e, "contact-form-section")}
-              className="text-xs font-bold text-slate-600 hover:text-slate-900 transition-all cursor-pointer"
+              className="text- font-bold hover:bg-slate-200 bg-slate-100 px-5 py-2.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all cursor-pointer"
             >
-              Fazer login
+              Entrar
             </a>
             <a
               href="#contact-form-section"
               onClick={(e) => handleScrollTo(e, "contact-form-section")}
-              className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:scale-102 active:scale-98 transition-all flex items-center gap-1 cursor-pointer"
+              className="bg-blue-600 hover:bg-blue-700 text-white text- font-bold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:scale-102 active:scale-98 transition-all flex items-center gap-1 cursor-pointer"
             >
               <span>Criar cardápio grátis</span>
               <span className="bg-blue-500 text-white text-[9px] px-1 rounded-sm">
@@ -179,7 +185,7 @@ export default function App() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-white border-b border-slate-100 p-6 space-y-4 absolute top-16 left-0 right-0 z-40 shadow-xl"
+            className="md:hidden bg-white border-b border-slate-100 p-6 space-y-4 fixed top-16 left-0 right-0 z-40 shadow-xl"
           >
             <nav className="flex flex-col gap-4 text-sm font-bold text-slate-600 uppercase tracking-wider">
               <a
@@ -221,11 +227,11 @@ export default function App() {
             <div className="h-px bg-slate-100 my-4" />
             <div className="flex flex-col gap-3">
               <a
-                href="#contact-form-section"
-                onClick={(e) => handleScrollTo(e, "contact-form-section")}
-                className="text-center py-2 text-sm font-bold text-slate-600 hover:text-slate-900"
+                href="https://painel.dulivi.com.br"
+                target="_blank"
+                className="text-center py-3 text-sm rounded-xl font-bold shadow-md hover:bg-slate-200 bg-slate-100 text-slate-600 hover:text-slate-900"
               >
-                Fazer login
+                Entrar
               </a>
               <a
                 href="#contact-form-section"
@@ -242,7 +248,7 @@ export default function App() {
       {/* HERO SECTION CONTAINER */}
       <section
         id="hero"
-        className="relative py-12 md:py-24 bg-radial-at-t from-blue-50/70 via-white to-white overflow-hidden"
+        className="relative py-12 bg-radial-at-t from-blue-50/70 via-white to-white overflow-hidden"
       >
         {/* Background visual detail */}
         <div className="absolute right-0 top-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -250,7 +256,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Hero Left Content Column */}
           <div className="lg:col-span-7 space-y-6 md:space-y-8">
-            <div className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-100 text-blue-700 text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-100 text-blue-700 text-sm px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
               <Sparkles size={12} className="animate-pulse" />
               <span>Plataforma Delivery 2.0</span>
             </div>
@@ -268,19 +274,19 @@ export default function App() {
 
             {/* Checklist of strong features */}
             <ul className="space-y-3.5">
-              <li className="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
+              <li className="flex items-center gap-2.5 text-sm md:text-sm text-slate-700 font-bold">
                 <span className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-extrabold text-[10px]">
                   ✓
                 </span>
                 <span>Atendimento humanizado no WhatsApp com IA</span>
               </li>
-              <li className="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
+              <li className="flex items-center gap-2.5 text-sm md:text-sm text-slate-700 font-bold">
                 <span className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-extrabold text-[10px]">
                   ✓
                 </span>
                 <span>Canal de vendas próprio sem taxas de marketplace</span>
               </li>
-              <li className="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
+              <li className="flex items-center gap-2.5 text-sm md:text-sm text-slate-700 font-bold">
                 <span className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-extrabold text-[10px]">
                   ✓
                 </span>
@@ -295,7 +301,7 @@ export default function App() {
               <a
                 href="#contact-form-section"
                 onClick={(e) => handleScrollTo(e, "contact-form-section")}
-                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold h-12 px-8 rounded-xl shadow-lg shadow-blue-600/15 hover:shadow-xl hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer text-center"
+                className="bg-blue-600 hover:bg-blue-700 text-white sm:text-base text-sm font-bold h-12 px-8 rounded-xl shadow-lg shadow-blue-600/15 hover:shadow-xl hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer text-center"
               >
                 <span>Criar cardápio grátis</span>
                 <Send size={14} />
@@ -303,7 +309,7 @@ export default function App() {
               <a
                 href="https://menu.dulivi.com.br/dulivi-burger"
                 target="_blank"
-                className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold h-12 px-8 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer text-center"
+                className="hover:bg-slate-100 bg-slate-200 text-slate-700 sm:text-base text-sm font-bold h-12 px-8 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer text-center"
               >
                 <span>Ver demonstração</span>
               </a>
@@ -326,10 +332,10 @@ export default function App() {
                 <DollarSign />
               </div>
               <div>
-                <h4 className="font-extrabold text-slate-900 text-xs">
+                <h4 className="font-extrabold text-slate-900 text-base lg:text-sm">
                   15 dias grátis
                 </h4>
-                <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">
+                <p className="text-sm lg:text-xs text-slate-400 mt-0.5 leading-normal">
                   Instalação gratuita sem custos iniciais.
                 </p>
               </div>
@@ -340,10 +346,10 @@ export default function App() {
                 <FileText />
               </div>
               <div>
-                <h4 className="font-extrabold text-slate-900 text-xs">
+                <h4 className="font-extrabold text-slate-900 text-base lg:text-sm">
                   Sem multa rescisória
                 </h4>
-                <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">
+                <p className="text-sm lg:text-xs text-slate-400 mt-0.5 leading-normal">
                   Cancele quando quiser, sem enrolação.
                 </p>
               </div>
@@ -354,10 +360,10 @@ export default function App() {
                 <Clock />
               </div>
               <div>
-                <h4 className="font-extrabold text-slate-900 text-xs">
+                <h4 className="font-extrabold text-slate-900 text-base lg:text-sm">
                   Suporte 24/7 WhatsApp
                 </h4>
-                <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">
+                <p className="text-sm lg:text-xs text-slate-400 mt-0.5 leading-normal">
                   Prontos para te atender a qualquer hora.
                 </p>
               </div>
@@ -368,10 +374,10 @@ export default function App() {
                 <Sparkles />
               </div>
               <div>
-                <h4 className="font-extrabold text-slate-900 text-xs">
+                <h4 className="font-extrabold text-slate-900 text-base lg:text-sm">
                   Ativação em minutos
                 </h4>
-                <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">
+                <p className="text-sm lg:text-xs text-slate-400 mt-0.5 leading-normal">
                   Seu menu online pronto na mesma hora.
                 </p>
               </div>
@@ -386,7 +392,7 @@ export default function App() {
         <div className="absolute inset-0 bg-radial-at-b from-blue-600/20 via-slate-950 to-slate-950 opacity-90" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <span className="bg-blue-500/10 border border-blue-500/25 text-blue-400 text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
+          <span className="bg-blue-500/10 border border-blue-500/25 text-blue-400 text-sm px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
             Dulivi em Números
           </span>
 
@@ -394,7 +400,7 @@ export default function App() {
             Resultados extraordinários alcançados pelos nossos clientes
           </h2>
 
-          <p className="text-slate-400 mt-3 text-xs md:text-sm max-w-md mx-auto leading-relaxed">
+          <p className="text-slate-400 mt-3 text-sm md:text-sm max-w-md mx-auto leading-relaxed">
             Nossos parceiros reduzem o tempo operacional e conquistam
             independência dos grandes marketplaces locais.
           </p>
@@ -404,10 +410,10 @@ export default function App() {
               <span className="text-4xl md:text-5xl font-display font-black text-blue-400 block font-mono">
                 +120M
               </span>
-              <span className="text-xs font-bold text-slate-300 block uppercase tracking-wider">
+              <span className="text-sm font-bold text-slate-300 block uppercase tracking-wider">
                 Faturados por parceiros
               </span>
-              <p className="text-[11px] text-slate-400 leading-normal">
+              <p className="text-xs text-slate-400 leading-normal">
                 Volume transacionado dentro da nossa plataforma própria.
               </p>
             </div>
@@ -416,10 +422,10 @@ export default function App() {
               <span className="text-4xl md:text-5xl font-display font-black text-blue-400 block font-mono">
                 +1.000
               </span>
-              <span className="text-xs font-bold text-slate-300 block uppercase tracking-wider">
+              <span className="text-sm font-bold text-slate-300 block uppercase tracking-wider">
                 Restaurantes Ativos
               </span>
-              <p className="text-[11px] text-slate-400 leading-normal">
+              <p className="text-xs text-slate-400 leading-normal">
                 Parceiros vendendo todos os dias em todo o Brasil.
               </p>
             </div>
@@ -428,10 +434,10 @@ export default function App() {
               <span className="text-4xl md:text-5xl font-display font-black text-blue-400 block font-mono">
                 +2M
               </span>
-              <span className="text-xs font-bold text-slate-300 block uppercase tracking-wider">
+              <span className="text-sm font-bold text-slate-300 block uppercase tracking-wider">
                 Pedidos Processados
               </span>
-              <p className="text-[11px] text-slate-400 leading-normal">
+              <p className="text-xs text-slate-400 leading-normal">
                 Comunicação inteligente e rápida via WhatsApp e CRM.
               </p>
             </div>
@@ -456,7 +462,7 @@ export default function App() {
         id="contact-form-section"
         className="py-20 bg-slate-50 border-t border-slate-100"
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Split Left - The interactive contact form */}
             <div className="lg:col-span-7">
@@ -468,12 +474,12 @@ export default function App() {
             </div>
 
             {/* Split Right - Live mobile preview which synchronizes changes */}
-            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
+            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-6 p-6">
               <div className="space-y-3 max-w-sm">
                 <h3 className="text-xl font-display font-black text-slate-900 tracking-tight leading-tight">
                   Seu Cardápio Ganha Vida na Hora!
                 </h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-sm text-slate-500 leading-relaxed">
                   Conforme você preenche o formulário ao lado o mockup ao lado
                   demonstra fielmente o design moderno que seus clientes vão
                   experimentar.
@@ -500,7 +506,7 @@ export default function App() {
       {/* FINAL WHY DULIVI CARD GRID */}
       <section className="py-20 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <span className="bg-blue-50 text-blue-700 text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
+          <span className="bg-blue-50 text-blue-700 text-sm px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
             Segurança & Estrutura
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-black text-slate-900 mt-4 tracking-tight">
@@ -511,12 +517,12 @@ export default function App() {
             <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg">
-                  🌐
+                  <Globe />
                 </div>
                 <h3 className="font-extrabold text-slate-900 text-sm md:text-base">
                   Hospedagem inclusa
                 </h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-sm text-slate-500 leading-relaxed">
                   Sua marca em um endereço profissional Dulivi sem pagar por
                   servidores adicionais. Velocidade total com CDN integrada para
                   não perder vendas.
@@ -527,12 +533,12 @@ export default function App() {
             <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg">
-                  💬
+                  <Bot />
                 </div>
                 <h3 className="font-extrabold text-slate-900 text-sm md:text-base">
                   WhatsApp Automatizado
                 </h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-sm text-slate-500 leading-relaxed">
                   Os pedidos dos clientes chegam formatados e prontos
                   diretamente no seu número de suporte. Sem atrito operacional
                   ou perda de informações.
@@ -543,12 +549,12 @@ export default function App() {
             <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-lg">
-                  📈
+                  <ChartNoAxesCombined />
                 </div>
                 <h3 className="font-extrabold text-slate-900 text-sm md:text-base">
                   Aumento de Vendas em 40%
                 </h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-sm text-slate-500 leading-relaxed">
                   Clientes compram mais através de menus modernos, otimizados
                   com categorizações e sugestões inteligentes de adicionais
                   automáticos.
@@ -569,7 +575,7 @@ export default function App() {
               <h3 className="text-3xl font-bold text-primary mb-1">Dulivi</h3>
             </a>
 
-            <p className="text-xs text-slate-400 leading-relaxed max-w-sm font-semibold">
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-semibold">
               Cardápio Digital para Delivery - Sistema completo que revoluciona
               a gestão do seu restaurante. Mais vendas, menos operacional, mais
               tempo livre para você.
@@ -577,10 +583,10 @@ export default function App() {
 
             <div className="pt-2">
               <a
-                href="https://wa.me/5513999999999"
+                href="https://wa.me/5513991027026"
                 target="_blank"
                 rel="referrer"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all"
+                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-all"
               >
                 <MessageCircle size={15} />
                 <span>Fale conosco via WhatsApp</span>
@@ -590,10 +596,10 @@ export default function App() {
 
           {/* Links Column */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-white text-xs font-black uppercase tracking-wider">
+            <h4 className="text-white text-sm font-black uppercase tracking-wider">
               Empresa
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-sm">
               <li>
                 <a
                   href="#about"
@@ -635,16 +641,16 @@ export default function App() {
 
           {/* Fale Conosco Right Column */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-white text-xs font-black uppercase tracking-wider">
+            <h4 className="text-white text-sm font-black uppercase tracking-wider">
               Fale com a gente
             </h4>
-            <ul className="space-y-2.5 text-xs">
+            <ul className="space-y-2.5 text-sm">
               <li className="flex items-center gap-2.5">
-                <span className="text-lg">📧</span>
+                <span className="text-lg"><Mail size={20} /></span>
                 <span className="font-semibold">contato@dulivi.com.br</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <span className="text-lg">📍</span>
+                <span className="text-lg"><MapPinned size={20} /></span>
                 <span className="font-semibold">Santos, SP</span>
               </li>
             </ul>
@@ -688,14 +694,14 @@ export default function App() {
                 <h3 className="text-2xl font-display font-black text-slate-900 leading-tight">
                   Parabéns!
                 </h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-sm text-slate-500 leading-relaxed">
                   O cardápio digital para o estabelecimento{" "}
                   <b className="text-slate-800">{activeSuccessModal}</b> foi
                   criado e está em processo de provisionamento na nuvem!
                 </p>
               </div>
 
-              <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 text-left text-xs text-slate-600 space-y-1.5 leading-relaxed font-mono">
+              <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 text-left text-sm text-slate-600 space-y-1.5 leading-relaxed font-mono">
                 <p className="text-blue-600 font-bold font-sans uppercase text-[10px]">
                   Próximas etapas:
                 </p>
@@ -708,7 +714,7 @@ export default function App() {
                 onClick={() =>
                   window.open("https://painel.dulivi.com.br", "_blank")
                 }
-                className="w-full h-11 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold shadow-md cursor-pointer transition-all"
+                className="w-full h-11 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-sm font-bold shadow-md cursor-pointer transition-all"
               >
                 Entrar no Gerenciador
               </button>
@@ -726,13 +732,12 @@ export default function App() {
               initial={{ opacity: 0, x: 50, y: 20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               exit={{ opacity: 0, x: 50, scale: 0.9 }}
-              className={`p-4 rounded-2xl shadow-xl border flex gap-3.5 items-start backdrop-blur-md ${
-                toast.variant === "destructive"
+              className={`p-4 rounded-2xl shadow-xl border flex gap-3.5 items-start backdrop-blur-md ${toast.variant === "destructive"
                   ? "bg-rose-50/95 border-rose-100 text-rose-900"
                   : toast.variant === "success"
                     ? "bg-emerald-50/95 border-emerald-100 text-emerald-900"
                     : "bg-white/95 border-slate-100 text-slate-800"
-              }`}
+                }`}
             >
               {toast.variant === "success" ? (
                 <span className="text-lg">✅</span>
@@ -743,7 +748,7 @@ export default function App() {
               )}
 
               <div className="flex-1 space-y-0.5">
-                <h4 className="font-extrabold text-xs">{toast.title}</h4>
+                <h4 className="font-extrabold text-sm">{toast.title}</h4>
                 <p className="text-[10px] opacity-90 leading-relaxed font-semibold">
                   {toast.description}
                 </p>
@@ -759,6 +764,8 @@ export default function App() {
           ))}
         </AnimatePresence>
       </div>
+
+      <WhatsApp />
     </div>
   );
 }

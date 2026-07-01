@@ -451,7 +451,7 @@ export const Features: React.FC = () => {
                 <div className="mt-6 flex justify-end">
                   <a
                     href="#contact-form-section"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 sm:text-base text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors cursor-pointer"
                   >
                     <span>Iniciar gratuitamente →</span>
                   </a>
