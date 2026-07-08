@@ -26,7 +26,7 @@ export const Pricing: React.FC = () => {
       id: "start",
       name: "Start",
       tagline: "Pequenas lojas",
-      priceMonthly: 89.9,
+      priceMonthly: 75,
       popular: false,
       features: [
         "Cardápio digital",
